@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+/* Values estimated from the design screenshots (Figma variables were not accessible). */
+@theme {
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-ink: #0a0a0a;
+  --color-ink-2: #141211;
+  --color-ink-3: #1a1816;
+  --color-line-dark: #262422;
+  --color-cream: #f2ede1;
+  --color-cream-2: #ebe3d1;
+  --color-line-light: #e2dac8;
+  --color-peach: #f5dabc;
+  --color-gold: #b08a3e;
+  --color-gold-light: #c9a35a;
+  --color-muted-dark: #8a857c;
+  --color-muted-light: #6b665c;
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-cream font-sans antialiased;
+}
