@@ -1,11 +1,8 @@
+import { Link } from 'react-router-dom'
+import { bibleStudy, location, sundayGathering } from '../content/site'
 import { Button, ImageSlot } from './ui'
 
-const tickerItems = [
-  'Sundays · 10:00AM',
-  'Wednesday Bible Study · 6:30PM',
-  'Lagos, Nigeria',
-  'Live on YouTube + Instagram',
-]
+const tickerItems = [sundayGathering, bibleStudy, location, 'Live on YouTube + Instagram']
 
 export default function Hero() {
   return (
@@ -29,15 +26,16 @@ export default function Hero() {
             Boldly following Christ.
           </h1>
           <p className="mt-3 max-w-[300px] text-[10px] leading-[1.5] text-cream/70">
-            PGC is a home for young adults navigating faith, career, relationships and purpose — together.
+            PGC is a home for young adults navigating faith, career, relationships, and purpose. We grow in Christ while
+            building genuine community and learning to live out our faith every day.
           </p>
           <div className="mt-6 flex items-center gap-6">
-            <Button href="#sermons" variant="peach" className="px-5 py-3 text-[9px]">
-              Watch the Latest Sermon
-            </Button>
-            <a href="#visit" className="text-[9px] font-medium text-cream">
+            <Button href="/contact#visit" variant="peach" className="px-5 py-3 text-[9px]">
               Plan Your Visit
-            </a>
+            </Button>
+            <Link to="/sermons" className="text-[9px] font-medium text-cream">
+              Watch a Sermon
+            </Link>
           </div>
         </div>
 
@@ -46,7 +44,7 @@ export default function Hero() {
             “But you are a chosen generation,
             <br />a royal priesthood, a holy nation,
             <br />
-            His own special people.”
+            His own special people…”
           </p>
           <cite className="mt-1.5 block font-mono text-[8px] not-italic uppercase tracking-[0.18em] text-gold">
             1 Peter 2:9

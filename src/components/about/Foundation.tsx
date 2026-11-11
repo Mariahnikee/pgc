@@ -1,28 +1,29 @@
+import { pillarRefs } from '../../content/site'
 import { Accent, AboutEyebrow, AboutHeading } from './shared'
 
 const pillars = [
   {
     title: 'Follow Christ',
-    ref: 'Matt 16:24',
-    body: 'We follow the pattern and example Christ laid down through His Word, discipleship, prayer, Bible study, and spiritual maturity.',
+    ref: pillarRefs.followChrist,
+    body: 'Jesus is at the center of our faith and life. Through Scripture, prayer, discipleship, and spiritual growth, we seek to follow His example and become more like Him.',
     label: 'Pillar One',
   },
   {
     title: 'Fellowship',
-    ref: 'Ps 133:1',
-    body: 'God never intended for us to walk alone. We build authentic relationships that double as support and accountability.',
+    ref: pillarRefs.fellowship,
+    body: 'We were not made to walk alone. We create space for authentic relationships, mutual encouragement, and accountability as we grow together.',
     label: 'Pillar Two',
   },
   {
     title: 'Fulfill Purpose',
-    ref: 'Jer 1:5',
-    body: 'No one is here by mistake. We empower every member to discover the individual purpose God created them for.',
+    ref: pillarRefs.fulfillPurpose,
+    body: 'We encourage each person to recognize and develop their gifts, pursue their calling, and use what God has entrusted to them to serve others.',
     label: 'Pillar Three',
   },
   {
-    title: 'Have Fun',
-    ref: 'Ps 16:11',
-    body: 'Faith should be joyful, vibrant, and life-giving — never heavy, never boring, always alive.',
+    title: 'Have Fun Doing It',
+    ref: pillarRefs.haveFun,
+    body: 'We believe Christian community can be joyful, vibrant, and life-giving. We make room for laughter, friendship, celebration, and shared experiences.',
     label: 'Pillar Four',
   },
 ]
@@ -32,11 +33,15 @@ export default function Foundation() {
     <section className="bg-ink px-12 pt-[64px] pb-[80px] md:pt-[105px] md:pb-[140px]">
       <AboutEyebrow>Our foundation</AboutEyebrow>
       <AboutHeading>
-        Four pillars, <br className="md:hidden" />
-        <Accent>one purpose.</Accent>
+        Four pillars. <br className="md:hidden" />
+        <Accent>One purpose.</Accent>
       </AboutHeading>
+      <p className="mt-4 max-w-[440px] text-[11px] leading-[1.8] text-cream/50 md:text-[10px]">
+        Our four pillars shape how we follow Jesus, care for one another, pursue our God-given purpose, and enjoy life
+        together.
+      </p>
 
-      <div className="mt-10 grid grid-cols-1 border border-[#1f1d1b] md:mt-[53px] md:grid-cols-4">
+      <div className="mt-10 grid grid-cols-1 border border-[#1f1d1b] md:mt-[45px] md:grid-cols-4">
         {pillars.map((p, i) => (
           <article
             key={p.title}

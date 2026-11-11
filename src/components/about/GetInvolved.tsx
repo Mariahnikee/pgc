@@ -25,16 +25,20 @@ export default function GetInvolved() {
     <section id="get-involved" className="bg-ink-2 px-12 pt-[72px] pb-[72px] md:pt-[108px] md:pb-[101px]">
       <AboutEyebrow>Get involved</AboutEyebrow>
       <AboutHeading>
-        Find your <br className="md:hidden" />
-        <Accent>place</Accent> <br className="md:hidden" />
-        here.
+        Find your <Accent>place</Accent> <br className="md:hidden" />
+        in the PGC community.
       </AboutHeading>
+      <p className="mt-4 max-w-[440px] text-[11px] leading-[1.8] text-cream/50 md:text-[10px]">
+        There are different ways to contribute while growing. Start with the area that feels right for you.
+      </p>
 
-      <div className="mt-10 grid grid-cols-1 border border-[#24211f] md:mt-[47px] md:grid-cols-[1.1fr_1fr_1fr]">
+      <div className="mt-10 grid grid-cols-1 border border-[#24211f] md:mt-[40px] md:grid-cols-[1.1fr_1fr_1fr]">
         <article className="px-[30px] pt-[40px] pb-[40px] md:pt-[42px] md:pb-[46px]">
           <CardLabel>Connect groups</CardLabel>
-          <CardTitle>Small groups, real conversation.</CardTitle>
-          <CardBody>Two spaces built for honest fellowship, accountability, and friendship beyond Sunday.</CardBody>
+          <CardTitle>Small groups. Real conversations.</CardTitle>
+          <CardBody>
+            Build friendships, grow in faith, and find support beyond Sunday through Sistah’s Connect and Brotherhood.
+          </CardBody>
           <ul className="mt-4">
             {groups.map((g, i) => (
               <li
@@ -49,20 +53,25 @@ export default function GetInvolved() {
         </article>
 
         <article className="border-t border-[#24211f] px-[30px] pt-[40px] pb-[40px] md:border-t-0 md:border-l md:pt-[42px]">
-          <CardLabel>Serve</CardLabel>
-          <CardTitle>Join a serve team.</CardTitle>
-          <CardBody>Use your gifts — from media and hospitality to worship and outreach — to build something greater.</CardBody>
+          <CardLabel>Serving</CardLabel>
+          <CardTitle>Put your gifts to work.</CardTitle>
+          <CardBody>
+            Join hospitality, media, worship, or outreach to support the life and mission of PGC with your gifts.
+          </CardBody>
           <Link to="/get-involved" className={arrowLink}>
-            See open teams →
+            Explore Serving Opportunities →
           </Link>
         </article>
 
         <article className="border-t border-[#24211f] px-[30px] pt-[40px] pb-[40px] md:border-t-0 md:border-l md:pt-[42px]">
-          <CardLabel>Support</CardLabel>
+          <CardLabel>Prayer and giving</CardLabel>
           <CardTitle>Prayer &amp; giving.</CardTitle>
-          <CardBody>Submit a prayer request or give toward the vision — every seed sown fuels the mission.</CardBody>
+          <CardBody>
+            Take part in the life of the church through prayer and generosity. Share a prayer request or give as an act
+            of worship.
+          </CardBody>
           <Link to="/give" className={arrowLink}>
-            Give or request prayer →
+            Prayer and Giving →
           </Link>
         </article>
       </div>

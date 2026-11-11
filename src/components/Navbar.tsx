@@ -37,7 +37,7 @@ export default function Navbar() {
         </ul>
 
         <Link
-          to="#visit"
+          to="/contact#visit"
           className="hidden rounded-[3px] border border-cream/15 bg-ink px-4 py-2 text-[11px] font-medium text-cream transition-colors hover:border-cream/40 md:inline-flex"
         >
           Plan Your Visit
@@ -76,7 +76,7 @@ export default function Navbar() {
           </ul>
           <div className="px-[10px] pt-[22px]">
             <Link
-              to="#visit"
+              to="/contact#visit"
               onClick={() => setOpen(false)}
               className="flex h-[42px] w-full items-center justify-center rounded-[4px] bg-[#1c1a17] text-[15px] font-medium text-white"
             >

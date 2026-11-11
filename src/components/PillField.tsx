@@ -70,12 +70,16 @@ export function FormCard({
   onSubmit,
   button,
   status,
+  heading,
+  intro,
   className = 'md:pt-[46px]',
   children,
 }: {
   onSubmit: (e: FormEvent) => void
   button: ReactNode
   status?: ReactNode
+  heading?: string
+  intro?: string
   className?: string
   children: ReactNode
 }) {
@@ -84,6 +88,12 @@ export function FormCard({
       onSubmit={onSubmit}
       className={`mt-[44px] bg-cream-2 px-[17px] pt-[38px] pb-[24px] md:mt-0 md:rounded-[2px] md:px-[29px] md:pb-[30px] ${className}`}
     >
+      {heading && (
+        <div className="mb-[30px] md:mb-[36px]">
+          <h2 className="font-serif text-[18px] text-ink md:text-[21px]">{heading}</h2>
+          {intro && <p className="mt-1.5 text-[9.5px] leading-[1.7] text-muted-light md:text-[10.5px]">{intro}</p>}
+        </div>
+      )}
       <div className="space-y-[26px] md:space-y-[37px]">{children}</div>
       <div className="mt-[30px] flex flex-col items-end gap-3 md:mt-[46px]">
         <button

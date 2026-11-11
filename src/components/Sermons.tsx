@@ -1,12 +1,14 @@
+import { youtubeUrl } from '../content/site'
 import { Button, Container, Eyebrow, ImageSlot, SectionHeading } from './ui'
 
 type Sermon = { series: string; title: string; meta?: string; placeholder: string; featured?: boolean }
 
+// TODO(PGC): confirm video links, speakers and dates for these sermons.
 const sermons: Sermon[] = [
   {
     series: 'Ambassadors',
     title: 'Identity Before Assignment',
-    meta: 'Latest · 52 min',
+    meta: 'Identity · Purpose · 52 min',
     placeholder: 'linear-gradient(180deg, #6b3e22 0%, #4a2a17 50%, #2a170c 100%)',
     featured: true,
   },
@@ -35,7 +37,7 @@ function PlayButton() {
 function SermonCard({ sermon }: { sermon: Sermon }) {
   return (
     <a
-      href="https://www.youtube.com/"
+      href={youtubeUrl}
       target="_blank"
       rel="noreferrer"
       className={`group relative block overflow-hidden ${
@@ -63,13 +65,17 @@ export default function Sermons() {
           <div>
             <Eyebrow className="md:text-cream/60">Sermon archive</Eyebrow>
             <SectionHeading>
-              Catch up whenever
+              Keep growing
               <br />
-              you're ready.
+              in the Word.
             </SectionHeading>
+            <p className="mt-4 max-w-[340px] text-[10px] leading-[1.7] text-muted-dark">
+              Explore messages from PGC and revisit teaching at a time that works for you. Watch, reflect, and take your
+              next step in following Christ.
+            </p>
           </div>
-          <Button href="https://www.youtube.com/" variant="outline" className="self-start px-4 py-2.5 text-[9px] md:mb-2 md:self-auto">
-            View All on YouTube
+          <Button href="/sermons" variant="outline" className="self-start px-4 py-2.5 text-[9px] md:mb-2 md:self-auto">
+            Explore All Sermons
           </Button>
         </div>
 

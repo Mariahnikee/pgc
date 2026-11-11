@@ -1,30 +1,31 @@
+import { pillarRefs } from '../content/site'
 import { Container, Eyebrow, SectionHeading } from './ui'
 
 const pillars = [
   {
     tag: '01 / Follow Christ',
     title: 'Follow Christ',
-    body: 'Spiritually following the pattern Christ laid down through His Word, discipleship, prayer and Bible study.',
-    ref: 'Matthew 28:19',
+    body: 'We follow the example of Jesus through Scripture, prayer, discipleship, and a growing life of faith.',
+    ref: pillarRefs.followChrist,
   },
   {
     tag: '02 / Fellowship',
     title: 'Fellowship',
-    body: "We don't do life alone. We build authentic relationships that double as support and accountability.",
-    ref: 'Hebrews 10:25',
+    body: 'Faith was never meant to be lived alone. We build godly relationships with one another marked by encouragement, support, and accountability.',
+    ref: pillarRefs.fellowship,
   },
   {
     tag: '03 / Fulfill Purpose',
     title: 'Fulfill Purpose',
-    body: 'No one is here by mistake. We help you discover the individual purpose God created you for.',
-    ref: 'Jeremiah 1:5',
+    body: 'We help one another recognize and develop the gifts and callings of God upon our lives.',
+    ref: pillarRefs.fulfillPurpose,
     highlight: true,
   },
   {
     tag: '04 / Have Fun',
     title: 'Have Fun Doing It',
-    body: 'Faith is joyful, vibrant and life-giving — never a burden, always a celebration.',
-    ref: 'Psalm 16:11',
+    body: 'We believe following Jesus can be joyful and life-giving. We make room for friendship, celebration, and shared experiences as we grow.',
+    ref: pillarRefs.haveFun,
   },
 ]
 
@@ -42,8 +43,8 @@ export default function Pillars() {
             </SectionHeading>
           </div>
           <p className="max-w-[290px] text-[11px] leading-[1.6] text-muted-light md:mb-1 md:max-w-[255px] md:text-[10px]">
-            We integrate biblical principles into career, leadership, finances, relationships and emotional
-            wellbeing — faith that's lived, not just believed.
+            We bring biblical faith into our everyday walk with Christ, our relationships, our calling, and the way we
+            live. These four pillars shape how we grow together.
           </p>
         </div>
 

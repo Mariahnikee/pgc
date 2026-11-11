@@ -1,9 +1,10 @@
 import { Accent, AboutEyebrow, AboutHeading, Tag } from './shared'
 
+// TODO(PGC): confirm current connect group names and that both are active.
 const stats = [
-  { value: '18–40', text: 'Our core community — young adults building a life of faith, purpose, and career, side by side.' },
-  { value: '2', text: "Connect groups built for real conversation — Sistah's Connect and Brotherhood." },
-  { value: '1', text: 'Mission — to help a generation grow spiritually and boldly follow Christ.' },
+  { value: '18–40', text: 'The age range of our core young-adult community.' },
+  { value: '2', text: "Connect groups: Sistah's Connect and Brotherhood." },
+  { value: '1', text: 'Mission: to help a generation grow spiritually and boldly follow Christ.' },
 ]
 
 export default function WhoWeAreFor() {
@@ -12,18 +13,22 @@ export default function WhoWeAreFor() {
       <div className="px-12 pt-[64px] md:px-[52px] md:pt-[88px] md:pb-[90px]">
         <AboutEyebrow>Who we are for</AboutEyebrow>
         <AboutHeading className="md:text-[28px]">
-          Made for the <br className="md:hidden" />
-          <Accent>in-between</Accent> <br className="md:hidden" />
-          generation.
+          For the <Accent>in-between</Accent> years <br className="hidden md:inline" />
+          and everything they hold.
         </AboutHeading>
         <div className="mt-5 max-w-[370px] space-y-[16px] text-[11px] leading-[1.9] text-cream/50 md:space-y-[14px] md:text-[10px]">
           <p>
-            Whether you're figuring out your career, healing from the past, building real friendships, or just trying to
-            make sense of faith in your 20s and 30s — you have a seat here.
+            Whether you’re finding your feet in your career or working through a season of change, there is room to grow
+            here. We are very keen on building meaningful friendships and learning more about faith and purpose.
           </p>
-          <p>We welcome every individual willing to grow together in Christ, regardless of background.</p>
+          <p>
+            Our core community is young adults aged 18–40, but we welcome people who are willing to grow with us in
+            Christ. Wherever you are starting from, you can take your next step with a community that values faith,
+            honesty, and belonging.
+          </p>
         </div>
         <div className="mt-6">
+          {/* TODO(PGC): confirm this is the intended reference. */}
           <Tag>Galatians 3:28</Tag>
         </div>
       </div>
