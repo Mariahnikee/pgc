@@ -31,12 +31,13 @@ export function Pill({ children, tone = 'dark' }: { children: ReactNode; tone?: 
   )
 }
 
-type ButtonVariant = 'peach' | 'dark' | 'outline'
+type ButtonVariant = 'peach' | 'dark' | 'outline' | 'outlineLight'
 
 const buttonVariants: Record<ButtonVariant, string> = {
   peach: 'bg-peach text-ink hover:bg-[#f9e5cf]',
   dark: 'bg-[#1c1a17] text-cream hover:bg-black',
   outline: 'border border-cream/15 bg-ink text-cream hover:border-cream/40',
+  outlineLight: 'border border-ink/20 text-ink hover:border-ink/50',
 }
 
 export function Button({
@@ -61,8 +62,9 @@ export function Button({
     )
   }
   if (href) {
+    const external = href.startsWith('http')
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...(external && { target: '_blank', rel: 'noreferrer' })}>
         {children}
       </a>
     )

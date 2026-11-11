@@ -1,28 +1,12 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-type Account = { bank: string; name: string; number: string }
+type Account = { bank: string; name: string; number: string; extra?: { label: string; value: string }[] }
 
-// TODO(PGC): these are the design's placeholder account numbers. Replace with PGC's real accounts before launch.
-const groups: { title: string; accounts: Account[] }[] = [
-  {
-    title: 'Local Banks',
-    accounts: [
-      { bank: 'Zenith Bank:', name: 'Peculiar Generation Church', number: '0112546224' },
-      { bank: 'UBA:', name: 'Peculiar Generation Church', number: '0112546224' },
-      { bank: 'FCMB:', name: 'Peculiar Generation Church', number: '0112546224' },
-      { bank: 'First Bank:', name: 'Peculiar Generation Church', number: '0112546224' },
-    ],
-  },
-  {
-    title: 'International Banks',
-    accounts: [
-      { bank: 'Zenith Bank:', name: 'Peculiar Generation Church', number: '0112546224' },
-      { bank: 'UBA:', name: 'Peculiar Generation Church', number: '0112546224' },
-      { bank: 'FCMB:', name: 'Peculiar Generation Church', number: '0112546224' },
-      { bank: 'First Bank:', name: 'Peculiar Generation Church', number: '0112546224' },
-    ],
-  },
-]
+// TODO(PGC): add accounts only once the finance team has independently confirmed them.
+// International accounts can add rows like { label: 'SWIFT/BIC', value: '…' } or { label: 'Currency', value: 'USD' }.
+const localAccounts: Account[] = []
+const internationalAccounts: Account[] = []
 
 function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false)
@@ -56,29 +40,66 @@ function CopyButton({ value, label }: { value: string; label: string }) {
   )
 }
 
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="grid grid-cols-[110px_1fr] items-center gap-x-2 py-[4px] md:grid-cols-[120px_1fr]">
+      <dt className="text-ink/60">{label}</dt>
+      <dd className="flex items-center gap-2 text-muted-light">{children}</dd>
+    </div>
+  )
+}
+
+function AccountGroup({ title, intro, accounts }: { title: string; intro: string; accounts: Account[] }) {
+  return (
+    <div>
+      <p className="text-[11px] font-medium text-ink/80 md:text-[12px]">{title}</p>
+      <p className="mt-1.5 max-w-[360px] text-[10px] leading-[1.7] text-muted-light md:text-[11px]">{intro}</p>
+      {accounts.length === 0 ? (
+        <p className="mt-3 max-w-[360px] border-l-2 border-gold/50 pl-3 text-[10px] leading-[1.7] text-muted-light md:text-[11px]">
+          Verified account details will be published here soon. In the meantime,{' '}
+          <Link to="/contact" className="text-ink underline underline-offset-2">
+            contact us
+          </Link>{' '}
+          for giving details.
+        </p>
+      ) : (
+        <div className="mt-3 space-y-4">
+          {accounts.map((a) => (
+            <dl key={a.bank + a.number} className="text-[10px] md:text-[11.5px]">
+              <Row label="Bank">{a.bank}</Row>
+              <Row label="Account name">{a.name}</Row>
+              <Row label="Account number">
+                <span className="tabular-nums">{a.number}</span>
+                <CopyButton value={a.number} label={a.bank} />
+              </Row>
+              {a.extra?.map((e) => (
+                <Row key={e.label} label={e.label}>
+                  {e.value}
+                </Row>
+              ))}
+            </dl>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function AccountDetails() {
   return (
     <div>
-      <h2 className="font-serif text-[21px] leading-tight md:text-[34px]">Account Details</h2>
-      <div className="mt-[22px] space-y-[26px] md:mt-[34px] md:space-y-[40px]">
-        {groups.map((g) => (
-          <div key={g.title}>
-            <p className="text-[8px] font-medium text-ink/80 md:text-[11px]">{g.title}</p>
-            <ul className="mt-[6px] md:mt-[10px]">
-              {g.accounts.map((a) => (
-                <li
-                  key={a.bank}
-                  className="grid grid-cols-[76px_1fr_auto_auto] items-center gap-x-2 py-[5px] text-[8px] text-muted-light md:grid-cols-[77px_152px_auto_auto] md:py-[6px] md:text-[11.5px]"
-                >
-                  <span>{a.bank}</span>
-                  <span>{a.name}</span>
-                  <span className="tabular-nums">{a.number}</span>
-                  <CopyButton value={a.number} label={a.bank.replace(':', '')} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <h2 className="font-serif text-[21px] leading-tight md:text-[34px]">Bank transfer</h2>
+      <div className="mt-[22px] space-y-[30px] md:mt-[30px] md:space-y-[40px] md:pr-10">
+        <AccountGroup
+          title="Local transfers"
+          intro="You can support PGC by bank transfer using the verified account details below."
+          accounts={localAccounts}
+        />
+        <AccountGroup
+          title="International giving"
+          intro="For international transfers, use the verified instructions below or contact the church for assistance."
+          accounts={internationalAccounts}
+        />
       </div>
     </div>
   )

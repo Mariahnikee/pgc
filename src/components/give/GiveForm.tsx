@@ -17,18 +17,21 @@ export default function GiveForm() {
   return (
     <FormCard
       onSubmit={submit}
+      heading="Give online"
+      intro="Enter your details and the amount you would like to give. Please check the amount and payment details before completing your gift."
       button={`Give ₦${naira.format(value)}`}
       status={
-        submitted && "Thank you! Online payment isn't connected yet — please give through one of the accounts listed."
+        submitted &&
+        "Thank you! Online payment isn't available yet — please contact the church for giving details. No payment has been taken."
       }
     >
       <PillField label="Full name" icon={fieldIcons.user}>
         <input required name="name" placeholder="Input name" className={pillInputClass} />
       </PillField>
-      <PillField label="Email" icon={fieldIcons.mail}>
+      <PillField label="Email address" icon={fieldIcons.mail}>
         <input required type="email" name="email" placeholder="Input email" className={pillInputClass} />
       </PillField>
-      <PillField label="Phone number" icon={fieldIcons.phone}>
+      <PillField label="Phone number (optional)" icon={fieldIcons.phone}>
         <input type="tel" name="phone" placeholder="Input phone number" className={pillInputClass} />
       </PillField>
       <PillField label="Amount" icon={fieldIcons.wallet}>

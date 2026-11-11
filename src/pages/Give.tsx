@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero'
 import ContactForms from '../components/ContactForms'
 import { Container, Eyebrow, SectionHeading } from '../components/ui'
@@ -20,17 +21,26 @@ export default function Give() {
         <Container>
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-0">
             <div>
-              <Eyebrow>Your giving</Eyebrow>
+              <Eyebrow>Giving at PGC</Eyebrow>
               <SectionHeading className="text-[26px] md:text-[34px]">
-                Thanks for your
+                Thank you
                 <br />
-                generosity.
+                for giving.
               </SectionHeading>
             </div>
-            <p className="max-w-[280px] text-[10px] leading-[1.75] text-muted-light md:mt-[26px] md:max-w-[222px] md:text-[11px]">
-              Tribes are our outreach and fellowship community. It is church beyond church. When you join The Tower, we
-              can't wait to have you.
-            </p>
+            <div className="max-w-[280px] space-y-3 text-[10px] leading-[1.75] text-muted-light md:mt-[26px] md:max-w-[260px] md:text-[11px]">
+              <p>
+                Generosity is one way we take part in the work God is doing through PGC. Thank you for supporting the
+                ministry, community, and opportunities that help this generation grow in Christ and serve others.
+              </p>
+              <p>
+                Give prayerfully and thoughtfully. If you have questions about giving, please{' '}
+                <Link to="/contact" className="text-ink underline underline-offset-2">
+                  contact the church
+                </Link>
+                .
+              </p>
+            </div>
           </div>
 
           <div className="mt-[44px] md:mt-[78px] md:grid md:grid-cols-[1fr_493px] md:items-start">

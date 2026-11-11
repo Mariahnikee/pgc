@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { bibleStudy, location, sundayGathering } from '../content/site'
 import { Container, Pill } from './ui'
 
 type FooterLink = { label: string; to?: string }
@@ -17,15 +18,15 @@ const columns: { title: string; links: FooterLink[] }[] = [
   {
     title: 'Connect',
     links: [
-      { label: 'Prayer Request', to: '/#contact' },
-      { label: 'Plan Your Visit', to: '#visit' },
+      { label: 'Prayer Request', to: '/contact#prayer' },
+      { label: 'Plan Your Visit', to: '/contact#visit' },
       { label: 'Events Calendar', to: '/#events' },
       { label: 'Contact Us', to: '/contact' },
     ],
   },
   {
     title: 'Visit',
-    links: [{ label: 'Lagos, Nigeria' }, { label: 'Sundays · 10:00AM' }, { label: 'Wed Bible Study · 6:30PM' }],
+    links: [{ label: location }, { label: sundayGathering }, { label: bibleStudy }],
   },
 ]
 
@@ -35,7 +36,7 @@ const linkClass = 'text-[11px] text-cream/50 md:text-[9px]'
 
 export default function Footer() {
   return (
-    <footer id="visit" className="bg-black pt-[64px] pb-[40px] md:pt-[80px] md:pb-[36px]">
+    <footer className="bg-black pt-[64px] pb-[40px] md:pt-[80px] md:pb-[36px]">
       <Container>
         <div className="flex flex-col gap-10 md:flex-row md:justify-between md:gap-0">
           <div>

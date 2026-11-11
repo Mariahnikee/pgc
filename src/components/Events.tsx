@@ -1,10 +1,36 @@
+import { Link } from 'react-router-dom'
+import { times } from '../content/site'
 import { Container, Eyebrow, SectionHeading } from './ui'
 
+const withTime = (day: string, time: string | null) => (time ? `${day} · ${time}` : day)
+
+// TODO(PGC): confirm the day and time for PGC URI Fellowship and Dwell.
 const events = [
-  { when: 'Every Sunday · 12 noon', title: 'Sunday Gathering', body: 'Right after, there would be an after-service.' },
-  { when: 'Every Wednesday · 6:00PM', title: 'Bible Study', body: 'Going deeper into scripture together.', highlight: true },
-  { when: 'Every last Friday · 10:00AM', title: 'PGC URI Fellowship', body: 'A space for the women of PGC to grow together.' },
-  { when: 'Every last Friday · 11:00PM', title: 'Dwell (Vigil)', body: 'New to serving? Start here.' },
+  {
+    when: withTime('Every Sunday', times.sunday),
+    title: 'Sunday Gathering',
+    body: 'Gather with us for worship, the Word, and community.',
+    to: '/contact#visit',
+  },
+  {
+    when: withTime('Every Wednesday', times.bibleStudy),
+    title: 'Bible Study',
+    body: 'Spend time in Scripture and grow in understanding alongside the PGC community.',
+    to: '/contact#visit',
+    highlight: true,
+  },
+  {
+    when: 'Schedule coming soon',
+    title: 'PGC URI Fellowship',
+    body: 'A space for women at PGC to grow in faith and build meaningful relationships.',
+    to: '/contact',
+  },
+  {
+    when: 'Schedule coming soon',
+    title: 'Dwell (Vigil)',
+    body: 'A gathering for prayer and seeking God together.',
+    to: '/contact',
+  },
 ]
 
 function ArrowIcon() {
@@ -22,22 +48,19 @@ export default function Events() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-0">
           <div>
             <Eyebrow className="md:text-cream/60">This week at PGC</Eyebrow>
-            <SectionHeading>
-              Everything happening,
-              <br />
-              in one place.
-            </SectionHeading>
+            <SectionHeading>Find your next step.</SectionHeading>
           </div>
           <p className="max-w-[290px] text-[11px] leading-[1.6] text-muted-dark md:mb-1 md:max-w-[255px] md:text-[10px]">
-            Vital information — services, connect groups and events — always up to date.
+            Join us for worship, Bible study, and opportunities to grow in community. Check the details below for our
+            lineups.
           </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 border border-line-dark md:mt-[47px] md:grid-cols-4">
           {events.map((e, i) => (
-            <a
+            <Link
               key={e.title}
-              href="#events"
+              to={e.to}
               className={`group block px-[30px] py-[36px] transition-colors hover:bg-ink-3 md:px-6 md:pt-[26px] md:pb-[28px] ${
                 e.highlight ? 'bg-[#151312]' : ''
               } ${i > 0 ? 'border-t border-line-dark md:border-t-0 md:border-l' : ''}`}
@@ -48,7 +71,7 @@ export default function Events() {
               </div>
               <h3 className="mt-[14px] font-serif text-[17px] leading-tight text-cream md:text-[15px]">{e.title}</h3>
               <p className="mt-2 text-[10px] leading-[1.5] text-muted-dark md:text-[9px]">{e.body}</p>
-            </a>
+            </Link>
           ))}
         </div>
       </Container>
